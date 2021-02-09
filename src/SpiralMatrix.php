@@ -11,10 +11,23 @@ class SpiralMatrix
     private int $x;
     private int $y;
 
+    /**
+     * @var int[]
+     */
     private array $incX = [0, 1, 0, -1];
+
+    /**
+     * @var int[]
+     */
     private array $incY = [1, 0, -1, 0];
 
+    /**
+     * @var int|false
+     */
     private $incCurX;
+    /**
+     * @var int|false
+     */
     private $incCurY;
 
     private int $dX = 0;
@@ -25,6 +38,9 @@ class SpiralMatrix
     private int $numberOfLoop;
     private ?int $numberOfRepeat = null;
 
+    /**
+     * @var int[][]
+     */
     private array $spiral = [];
 
     public function __construct(int $x, int $y)
@@ -49,6 +65,9 @@ class SpiralMatrix
         }
     }
 
+    /**
+     * @return int[][]
+     */
     public function run(): array
     {
         while ($this->numberOfLoop >= 0) {
