@@ -16,11 +16,12 @@ class SpiralMatrixTest extends TestCase
 {
     /**
      * @dataProvider dataFailProvider
-     * @throws ExpectationFailedException
-     * @throws InvalidArgumentException
      *
      * @param int[] $spiral
      * @param int[] $expect
+     *
+     * @throws ExpectationFailedException
+     * @throws InvalidArgumentException
      */
     public function testFailGetChanges(array $spiral, array $expect): void
     {
