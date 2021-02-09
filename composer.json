@@ -1,7 +1,8 @@
 {
     "require-dev": {
         "real420og/php-cs-fixer-config": "^0.0.1",
-        "phpunit/phpunit": "^9.5"
+        "phpunit/phpunit": "^9.5",
+        "real420og/phpstan-config": "^0.0.1"
     },
     "config": {
         "preferred-install": {
