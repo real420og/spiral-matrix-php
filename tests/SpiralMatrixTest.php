@@ -5,7 +5,9 @@ declare(strict_types=1);
 namespace App\Tests;
 
 use App\SpiralMatrix;
+use PHPUnit\Framework\ExpectationFailedException;
 use PHPUnit\Framework\TestCase;
+use SebastianBergmann\RecursionContext\InvalidArgumentException;
 
 /**
  * @internal
@@ -14,6 +16,8 @@ class SpiralMatrixTest extends TestCase
 {
     /**
      * @dataProvider dataFailProvider
+     * @throws ExpectationFailedException
+     * @throws InvalidArgumentException
      *
      * @param int[] $spiral
      * @param int[] $expect
@@ -24,7 +28,7 @@ class SpiralMatrixTest extends TestCase
     }
 
     /**
-     * @return array<int, array<string, int>>
+     * @return array<int, array<string, array<array<int>>>>
      */
     public function dataFailProvider(): array
     {
