@@ -11,11 +11,18 @@ class SpiralMatrix
     private int $x;
     private int $y;
 
+    /**
+     * @var int[]
+     */
     private array $incX = [0, 1, 0, -1];
+
+    /**
+     * @var int[]
+     */
     private array $incY = [1, 0, -1, 0];
 
-    private $incCurX;
-    private $incCurY;
+    private int $incCurX;
+    private int $incCurY;
 
     private int $dX = 0;
     private int $dY = -1;
@@ -25,6 +32,9 @@ class SpiralMatrix
     private int $numberOfLoop;
     private ?int $numberOfRepeat = null;
 
+    /**
+     * @var int[][]
+     */
     private array $spiral = [];
 
     public function __construct(int $x, int $y)
@@ -32,8 +42,8 @@ class SpiralMatrix
         $this->x = $x;
         $this->y = $y;
 
-        $this->incCurX = current($this->incX);
-        $this->incCurY = current($this->incY);
+        $this->incCurX = $this->incX[0];
+        $this->incCurY = $this->incY[0];
 
         if ($this->y < $this->x) {
             $this->numberOfLoop = $this->y * 2 - 1;
@@ -49,17 +59,12 @@ class SpiralMatrix
         }
     }
 
+    /**
+     * @return int[][]
+     */
     public function run(): array
     {
         while ($this->numberOfLoop >= 0) {
-            if (false === $this->incCurX) {
-                $this->incCurX = reset($this->incX);
-            }
-
-            if (false === $this->incCurY) {
-                $this->incCurY = reset($this->incY);
-            }
-
             if ($this->numberOfRepeat === $this->x) {
                 --$this->x;
                 $this->numberOfRepeat = $this->y;
@@ -77,8 +82,8 @@ class SpiralMatrix
                 ++$this->inc;
             });
 
-            $this->incCurX = next($this->incX);
-            $this->incCurY = next($this->incY);
+            $this->incCurX = false === next($this->incX) ? (int) reset($this->incX) : (int) current($this->incX);
+            $this->incCurY = false === next($this->incY) ? (int) reset($this->incY) : (int) current($this->incY);
 
             --$this->numberOfLoop;
         }

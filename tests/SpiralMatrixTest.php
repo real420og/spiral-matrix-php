@@ -5,7 +5,9 @@ declare(strict_types=1);
 namespace App\Tests;
 
 use App\SpiralMatrix;
+use PHPUnit\Framework\ExpectationFailedException;
 use PHPUnit\Framework\TestCase;
+use SebastianBergmann\RecursionContext\InvalidArgumentException;
 
 /**
  * @internal
@@ -17,6 +19,9 @@ class SpiralMatrixTest extends TestCase
      *
      * @param int[] $spiral
      * @param int[] $expect
+     *
+     * @throws ExpectationFailedException
+     * @throws InvalidArgumentException
      */
     public function testFailGetChanges(array $spiral, array $expect): void
     {
@@ -24,11 +29,19 @@ class SpiralMatrixTest extends TestCase
     }
 
     /**
-     * @return array<int, array<string, int>>
+     * @return array<int, array<string, array<array<int>>>>
      */
     public function dataFailProvider(): array
     {
         return [
+            [
+                'spiral' => (new SpiralMatrix(3, 3))->run(),
+                'expect' => [
+                    [1, 2, 3],
+                    [8, 9, 4],
+                    [7, 6, 5],
+                ],
+            ],
             [
                 'spiral' => (new SpiralMatrix(10, 10))->run(),
                 'expect' => [
@@ -80,6 +93,36 @@ class SpiralMatrixTest extends TestCase
                     [1, 2, 3, 4],
                     [10, 11, 12, 5],
                     [9, 8, 7, 6],
+                ],
+            ],
+            [
+                'spiral' => (new SpiralMatrix(2, 10))->run(),
+                'expect' => [
+                    [1, 2],
+                    [20, 3],
+                    [19, 4],
+                    [18, 5],
+                    [17, 6],
+                    [16, 7],
+                    [15, 8],
+                    [14, 9],
+                    [13, 10],
+                    [12, 11],
+                ],
+            ],
+            [
+                'spiral' => (new SpiralMatrix(3, 10))->run(),
+                'expect' => [
+                    [1, 2, 3],
+                    [22, 23, 4],
+                    [21, 24, 5],
+                    [20, 25, 6],
+                    [19, 26, 7],
+                    [18, 27, 8],
+                    [17, 28, 9],
+                    [16, 29, 10],
+                    [15, 30, 11],
+                    [14, 13, 12],
                 ],
             ],
         ];
