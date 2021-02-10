@@ -1,4 +1,11 @@
 {
+    "type": "project",
+    "license": [
+        "MIT"
+    ],
+    "require": {
+        "php": "^7.4.0"
+    },
     "require-dev": {
         "real420og/php-cs-fixer-config": "^0.0.1",
         "phpunit/phpunit": "^9.5",

@@ -1,5 +1,7 @@
 # Spiral Matrix PHP
 
+[![Build Status](https://travis-ci.org/real420og/spiral-matrix-php.svg?branch=main)](https://travis-ci.org/real420og/spiral-matrix-php)
+
 Simple spiral matrix generator written in PHP 
 
 # Examples
