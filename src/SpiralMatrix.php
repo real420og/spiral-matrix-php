@@ -90,25 +90,4 @@ class SpiralMatrix
             }
         }
     }
-
-    private function init(int $x, int $y): void {
-        $this->x = $x;
-        $this->y = $y;
-
-        $this->incCurX = $this->incX[0];
-        $this->incCurY = $this->incY[0];
-
-        if ($this->y < $this->x) {
-            $this->numberOfLoop = $this->y * 2 - 1;
-        } else {
-            $this->numberOfLoop = $this->x * 2 - 1;
-        }
-
-        for ($i = 0; $i < $y; ++$i) {
-            $this->spiral[$i] = [];
-            for ($ii = 0; $ii < $x; ++$ii) {
-                $this->spiral[$i][$ii] = 0;
-            }
-        }
-    }
 }
