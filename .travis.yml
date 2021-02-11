@@ -8,3 +8,4 @@ install:
 
 script:
     - phpunit
+    - bin/console write-in-output-matrix-spiral:execute 10 10

@@ -4,7 +4,8 @@
         "MIT"
     ],
     "require": {
-        "php": "^7.4.0"
+        "php": "^7.4.0",
+        "symfony/console": "^5.2"
     },
     "require-dev": {
         "real420og/php-cs-fixer-config": "^0.0.1",

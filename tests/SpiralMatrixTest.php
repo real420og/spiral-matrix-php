@@ -35,7 +35,7 @@ class SpiralMatrixTest extends TestCase
     {
         return [
             [
-                'spiral' => (new SpiralMatrix(3, 3))->run(),
+                'spiral' => (new SpiralMatrix())->run(3, 3),
                 'expect' => [
                     [1, 2, 3],
                     [8, 9, 4],
@@ -43,7 +43,7 @@ class SpiralMatrixTest extends TestCase
                 ],
             ],
             [
-                'spiral' => (new SpiralMatrix(10, 10))->run(),
+                'spiral' => (new SpiralMatrix())->run(10, 10),
                 'expect' => [
                     [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
                     [36, 37, 38, 39, 40, 41, 42, 43, 44, 11],
@@ -58,13 +58,13 @@ class SpiralMatrixTest extends TestCase
                 ],
             ],
             [
-                'spiral' => (new SpiralMatrix(10, 1))->run(),
+                'spiral' => (new SpiralMatrix())->run(10, 1),
                 'expect' => [
                     [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
                 ],
             ],
             [
-                'spiral' => (new SpiralMatrix(1, 10))->run(),
+                'spiral' => (new SpiralMatrix())->run(1, 10),
                 'expect' => [
                     [1],
                     [2],
@@ -79,7 +79,7 @@ class SpiralMatrixTest extends TestCase
                 ],
             ],
             [
-                'spiral' => (new SpiralMatrix(3, 4))->run(),
+                'spiral' => (new SpiralMatrix())->run(3, 4),
                 'expect' => [
                     [1, 2, 3],
                     [10, 11, 4],
@@ -88,7 +88,7 @@ class SpiralMatrixTest extends TestCase
                 ],
             ],
             [
-                'spiral' => (new SpiralMatrix(4, 3))->run(),
+                'spiral' => (new SpiralMatrix())->run(4, 3),
                 'expect' => [
                     [1, 2, 3, 4],
                     [10, 11, 12, 5],
@@ -96,7 +96,7 @@ class SpiralMatrixTest extends TestCase
                 ],
             ],
             [
-                'spiral' => (new SpiralMatrix(2, 10))->run(),
+                'spiral' => (new SpiralMatrix())->run(2, 10),
                 'expect' => [
                     [1, 2],
                     [20, 3],
@@ -111,7 +111,7 @@ class SpiralMatrixTest extends TestCase
                 ],
             ],
             [
-                'spiral' => (new SpiralMatrix(3, 10))->run(),
+                'spiral' => (new SpiralMatrix())->run(3, 10),
                 'expect' => [
                     [1, 2, 3],
                     [22, 23, 4],
