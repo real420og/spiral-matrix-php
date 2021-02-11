@@ -4,8 +4,6 @@ declare(strict_types=1);
 
 namespace App;
 
-use Closure;
-
 class SpiralMatrix
 {
     private int $x;
@@ -53,14 +51,14 @@ class SpiralMatrix
                 $this->numberOfRepeat = $this->x;
             }
 
-            $this->repeat($this->numberOfRepeat, function (): void {
+            for ($i = 0; $i < $this->numberOfRepeat; ++$i) {
                 $this->dX += $this->incCurX;
                 $this->dY += $this->incCurY;
 
                 $this->spiral[$this->dX][$this->dY] = $this->inc;
 
                 ++$this->inc;
-            });
+            }
 
             $this->incCurX = false === next($this->incX) ? (int) reset($this->incX) : (int) current($this->incX);
             $this->incCurY = false === next($this->incY) ? (int) reset($this->incY) : (int) current($this->incY);
@@ -71,17 +69,26 @@ class SpiralMatrix
         return $this->spiral;
     }
 
-    private function repeat(int $inc, Closure $func): void
+    private function init(int $x, int $y): void
     {
-        if (0 === $inc) {
-            return;
+        $this->x = $x;
+        $this->y = $y;
+
+        $this->incCurX = $this->incX[0];
+        $this->incCurY = $this->incY[0];
+
+        if ($this->y < $this->x) {
+            $this->numberOfLoop = $this->y * 2 - 1;
+        } else {
+            $this->numberOfLoop = $this->x * 2 - 1;
         }
 
-        $func();
-
-        --$inc;
-
-        $this->repeat($inc, $func);
+        for ($i = 0; $i < $y; ++$i) {
+            $this->spiral[$i] = [];
+            for ($ii = 0; $ii < $x; ++$ii) {
+                $this->spiral[$i][$ii] = 0;
+            }
+        }
     }
 
     private function init(int $x, int $y): void {
