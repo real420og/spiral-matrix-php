@@ -44,7 +44,7 @@ class WriteInOutputMatrixSpiral extends Command
         $x = (int) $input->getArgument('x');
         $y = (int) $input->getArgument('y');
 
-        $numeralCount = $this->numeralCount($x * $y);
+        $numeralCount = $this->numberOfDigitsInInteger($x * $y);
 
         $spiralMatrix = $this->spiralMatrix->run($x, $y);
 
@@ -52,7 +52,7 @@ class WriteInOutputMatrixSpiral extends Command
             $output->write('|');
 
             foreach ($value as $k => $v) {
-                if ($numeralCount > $this->numeralCount($v)) {
+                if ($numeralCount > $this->numberOfDigitsInInteger($v)) {
                     $v = str_pad((string) $v, $numeralCount, '0', STR_PAD_LEFT);
                 }
 
@@ -64,7 +64,7 @@ class WriteInOutputMatrixSpiral extends Command
         return 0;
     }
 
-    private function numeralCount(int $number): int
+    private function numberOfDigitsInInteger(int $number): int
     {
         return (int) floor(log10($number)) + 1;
     }
