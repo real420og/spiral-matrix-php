@@ -15,7 +15,7 @@ use SebastianBergmann\RecursionContext\InvalidArgumentException;
 class SpiralMatrixTest extends TestCase
 {
     /**
-     * @dataProvider dataFailProvider
+     * @dataProvider dataSuccessProvider
      *
      * @param int[] $spiral
      * @param int[] $expect
@@ -23,7 +23,7 @@ class SpiralMatrixTest extends TestCase
      * @throws ExpectationFailedException
      * @throws InvalidArgumentException
      */
-    public function testFailGetChanges(array $spiral, array $expect): void
+    public function testRunSuccess(array $spiral, array $expect): void
     {
         self::assertSame($spiral, $expect);
     }
@@ -31,7 +31,7 @@ class SpiralMatrixTest extends TestCase
     /**
      * @return array<int, array<string, array<array<int>>>>
      */
-    public function dataFailProvider(): array
+    public function dataSuccessProvider(): array
     {
         return [
             [
